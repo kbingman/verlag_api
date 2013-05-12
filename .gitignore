@@ -1,0 +1,11 @@
+.tmp
+.sass-cache
+.DS_Store
+.bowerrc
+.editorconfig
+.jshintrc
+.ruby-version
+
+node_modules
+dist
+app/components
