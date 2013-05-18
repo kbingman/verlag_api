@@ -1,0 +1,6 @@
+development:
+  sessions:
+    default:
+      database: verlag
+      hosts:
+        - localhost:27017

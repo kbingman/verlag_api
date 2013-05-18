@@ -9,10 +9,19 @@ gem 'sinatra-contrib'
 gem 'multi_json'
 gem 'mustermann'
 
+gem 'activesupport'
+
 gem 'rack-livereload'
 gem 'sass'
+gem 'mustache'
 
-gem 'couchbase-model'
-gem 'activemodel'
+gem 'mongoid'
+gem 'bson_ext'
 
 gem 'foreman'
+
+
+group :test do
+    gem 'rspec'
+    gem 'rack-test', :require => "rack/test"
+end
