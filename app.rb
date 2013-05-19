@@ -3,7 +3,7 @@ require 'multi_json'
 require 'sinatra/base'
 require 'sinatra/json'
 require 'sinatra/mustache'
-
+require 'sinatra/namespace'
 
 require 'mongoid'
 require './models/page'
@@ -42,10 +42,8 @@ class App < Sinatra::Base
     mustache :index, locals: { content: 'content' }
   end
   
-  get '/pages' do
-    pages = Page.all
-    erb :index, locals: { content: erb(:'_new_page') }
-  end
+  # API
+  # Namespace this, make helpers local, too
   
   post '/api/:klass' do
     klass = get_klass params[:klass]

@@ -1,9 +1,9 @@
-define ['backbone', 'hgn!templates/pages/index'], (Backbone, template) ->
+define ['backbone', 'cs!presenters/page', 'hgn!templates/pages/index'], (Backbone, PagePresenter, template) ->
     class PagesIndexView extends Backbone.View
         template: template
 
         render: () ->
-            # @template message: 'Hello World', (err, html) => @$el.html html
-            @$el.html template(message: 'Hello World')
+            context = new PagePresenter()
+            @$el.html template(context)
 
     PagesIndexView
