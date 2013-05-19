@@ -1,1 +1,2 @@
-class verlagApi.Models.PageModel extends Backbone.Model
+define ['backbone', 'underscore'], (Backbone, _) ->
+    class Page extends Backbone.Model

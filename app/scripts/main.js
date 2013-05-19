@@ -15,14 +15,23 @@ require.config({
         },
     },
     paths: {
-        jquery: '../components/jquery/jquery',
-        backbone: '../components/backbone-amd/backbone',
-        underscore: '../components/underscore-amd/underscore',
+        'jquery': '../components/jquery/jquery',
+        'backbone': '../components/backbone-amd/backbone',
+        'underscore': '../components/underscore-amd/underscore',
+        
+        // CoffeeScript Support
+        'cs': '../components/coffee-script/requirejs-plugin',
+        'coffee-script': '../components/coffee-script/coffee-script',
+        
+        // Hogan Templating Support
+        'text': '../bower_components/text/text',
+        'hgn': '../bower_components/requirejs-hogan-plugin/hgn',
+        'hogan': '../bower_components/requirejs-hogan-plugin/hogan',
     }
 });
 
 require([
-    'backbone'
-], function (Backbone) {
-    Backbone.history.start();
+    'app', 'backbone'
+], function (App) {
+    App.init('app-container', { root: '/' });
 });
