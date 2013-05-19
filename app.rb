@@ -1,8 +1,8 @@
-require 'sinatra/base'
-
 require 'multi_json'
-require 'sinatra/json'
 
+require 'sinatra/base'
+require 'sinatra/json'
+require 'sinatra/mustache'
 
 
 require 'mongoid'
@@ -39,7 +39,7 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    erb :index, locals: { content: erb(:'_content') }
+    mustache :index, locals: { content: 'content' }
   end
   
   get '/pages' do

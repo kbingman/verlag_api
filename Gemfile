@@ -6,6 +6,8 @@ gem 'unicorn'
 
 gem 'sinatra'
 gem 'sinatra-contrib'
+gem 'sinatra-mustache'
+
 gem 'multi_json'
 gem 'mustermann'
 
