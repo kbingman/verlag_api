@@ -15,9 +15,6 @@ require.config({
         },
     },
     paths: {
-        // Map all App data to the data module
-        'appdata': 'data',
-        
         'jquery': '../components/jquery/jquery',
         'backbone': '../components/backbone-amd/backbone',
         'underscore': '../components/underscore-amd/underscore',
@@ -34,10 +31,7 @@ require.config({
 });
 
 require([
-    'app', 'appdata'
-], function (App, AppData) {
-    AppData.collections = {}
-    AppData.App = App.init('app-container', { root: '/' });
-    AppData.router = AppData.App.router
-
+    'app', 'backbone'
+], function (App) {
+    App.init('app-container', { root: '/' });
 });

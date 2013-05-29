@@ -42,22 +42,29 @@ class App < Sinatra::Base
     mustache :index, locals: { content: 'content' }
   end
   
+  get '/pages/*' do
+    mustache :index
+  end
+  
   # API
   # Namespace this, make helpers local, too
   
   post '/api/:klass' do
+    headers['Access-Control-Allow-Origin'] = '*'
     klass = get_klass params[:klass]
     collection = klass.all
     json collection
   end
   
   get '/api/:klass' do
+    headers['Access-Control-Allow-Origin'] = '*'
     klass = get_klass params[:klass]
     collection = klass.all
     json collection
   end
   
   get '/api/:klass/:slug?' do
+    headers['Access-Control-Allow-Origin'] = '*'
     slug = params[:slug] || '/'
     klass = get_klass params[:klass]
     model = klass.where(slug: slug).first

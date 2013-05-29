@@ -1,8 +1,9 @@
 define ['cs!presenters/presenter'], (Presenter) ->
     class PagePresenter extends Presenter
     
-      title: 'The Title'
-      
       message: 'Hello World! How are you?'
+      
+      path: ->
+          "/pages/#{@_id}/edit"
     
     PagePresenter
