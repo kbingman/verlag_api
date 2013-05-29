@@ -29,11 +29,11 @@ class App < Sinatra::Base
   
   # Dev Environment
   configure :development do
-    require 'rack-livereload'
+    # require 'rack-livereload'
     require 'sinatra/reloader'
     
     register Sinatra::Reloader
-    use Rack::LiveReload
+    # use Rack::LiveReload
     
     set :public_folder, 'app'
   end
