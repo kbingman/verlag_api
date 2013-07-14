@@ -8,8 +8,15 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-mustache'
 
+gem 'dalli'
+gem 'rack-cache'
+gem 'rack-cors', :require => 'rack/cors'
+
 gem 'multi_json'
 gem 'mustermann'
+
+gem 'carrierwave'
+gem 'carrierwave-mongoid'
 
 gem 'activesupport'
 
@@ -25,5 +32,7 @@ gem 'foreman'
 
 group :test do
     gem 'rspec'
-    gem 'rack-test', :require => "rack/test"
+    gem 'rack-test', :require => 'rack/test'
+    gem 'factory_girl'
+    gem 'forgery'
 end

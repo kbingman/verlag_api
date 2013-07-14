@@ -1,7 +1,6 @@
-require 'mongoid'
+require './models/block'
 
-class TextBlock
-  include Mongoid::Document
+class TextBlock < Block
   
   field :body, type: String
   field :filter, type: String
