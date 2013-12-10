@@ -21,7 +21,7 @@ describe 'Page Presenter' do
         _id: block._id,
         name: block.name,
         body: block.body,
-        position: @model.position,
+        position: block.position,
         class_name: block.class.to_s,
         created_at: block.created_at,
         updated_at: block.updated_at

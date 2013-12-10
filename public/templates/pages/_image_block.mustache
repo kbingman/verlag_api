@@ -1,0 +1,18 @@
+<div data-id="{{ _id }}" id="image-block-{{ _id }}" class="textBlock">
+    <div class="control-group">
+        <div>
+            <label>name</label>
+        </div>
+        <input type="text" class="part-name" name="name" value="{{ name }}" />
+        <input data-id="{{ _id }}" type="hidden" class="part-type" name="_type" value="ImageBlock" />
+        <input data-id="{{ _id }}" multiple="multiple" type="file" name="file" value="file" class="btn v-jsUploadImageBtn" />
+    </div>
+    
+    {{# images }}
+        <div class="v-thumbnail">
+          <a href="{{ settings.api }}{{ path }}">
+            <img src="{{ settings.api }}{{ path }}">
+          </a>
+        </div>
+    {{/ images }}
+</div>

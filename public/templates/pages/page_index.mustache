@@ -1,0 +1,18 @@
+<h4>Pages</h4>
+
+<a href="#" class="v-jsNewPage">New Page</a>
+
+<ul>
+  {{# pages }}
+    <li id="page-{{ _id }}">
+      <a class="v-jsEditPage" data-id="{{ _id }}" href="/pages/{{ _id }}">
+        <span class="fs1" aria-hidden="true" data-icon="E"></span>
+        {{ title }}
+      </a>
+      <a href="/pages/{{ _id }}/remove">
+        <span aria-hidden="true" data-id="{{ _id }}" class="v-jsRemovePage icon-x"></span>
+      </a>
+    </li>
+  {{/ pages }}
+</ul>
+

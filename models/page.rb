@@ -10,14 +10,15 @@ class Page
   field :slug, type: String
   field :position, type: Integer
   
+  field :content, type: String
+  
   validates :title, :presence => true
   validates :slug, :presence => true
   
   embeds_many :blocks
-  embeds_many :image_blocks
-  embeds_many :text_blocks
   
   has_and_belongs_to_many :images, inverse_of: :pages
+  belongs_to :site
   
   # accepts_nested_attributes_for :blocks
   

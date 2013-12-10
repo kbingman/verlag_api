@@ -8,6 +8,7 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'sinatra-mustache'
 
+gem 'rack-mobile-detect'
 gem 'dalli'
 gem 'rack-cache'
 gem 'rack-cors', :require => 'rack/cors'
@@ -31,6 +32,7 @@ gem 'foreman'
 
 
 group :test do
+    gem 'rake'
     gem 'rspec'
     gem 'rack-test', :require => 'rack/test'
     gem 'factory_girl'

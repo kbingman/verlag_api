@@ -41,7 +41,7 @@ class PagePresenter < BasePresenter
       slug: @model.slug,
       created_at: @model.created_at,
       updated_at: @model.updated_at,
-      blocks: blocks
+      content: content
     }
   end
   

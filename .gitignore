@@ -10,3 +10,4 @@ node_modules
 dist
 app/bower_components
 app/components
+tmp

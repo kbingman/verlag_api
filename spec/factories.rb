@@ -1,6 +1,32 @@
 FactoryGirl.define do
   sequence(:email) {|n| "person-#{n}@example.com" }
   sequence(:count)
+  
+  factory :site do 
+    sequence(:name) {|n| "Site #{n}" }
+    sequence(:domain) {|n| "domain#{n}.com" }
+    
+    factory :site_with_pages do
+      ignore do
+        pages_count 3
+      end
+    
+      after(:create) do |site, evaluator|
+        FactoryGirl.create_list(:page, evaluator.pages_count, site: site)
+      end
+    end
+    
+    
+    factory :site_with_images do
+      ignore do
+        images_count 3
+      end
+    
+      after(:create) do |site, evaluator|
+        FactoryGirl.create_list(:image, evaluator.images_count, site: site)
+      end
+    end
+  end
 
   factory :page do
     sequence(:title) {|n| "Title #{n}" }

@@ -1,0 +1,44 @@
+{{# page }}
+    <h2>
+      <span class="v-contenteditable" contenteditable="true">{{ title }}</span>
+      <a href="#" class="v-jsNewImageBlockBtn icon-cog" title="Settings"></a> 
+    </h2>
+    <div class="v-control-bar">
+      <a href="#" class="v-jsNewTextBlockBtn icon-plus" title="Add Text Block"></a>  
+      <a href="#" class="v-jsNewImageBlockBtn icon-image" title="Add Image"></a> 
+    </div>
+
+    <div id="page-blocks" class="text-blocks parts">
+      {{# blocks }}
+        {{# isText }}
+            <h6 class="v-block-name">{{ name }}</h6>
+            <article data-id="{{ _id }}" class="v-contenteditable" contenteditable="true" id="text-block-{{ _id }}">{{{ body }}}</article>
+            
+        {{/ isText }}
+        {{# isImage }}
+            <h6 class="v-block-name">>{{ name }}</h6>
+            
+            <div>
+                <form>
+                    <input data-id="{{ _id }}" 
+                        multiple="multiple" 
+                        type="file" 
+                        name="file" 
+                        value="file" 
+                        class="btn v-jsUploadImageBtn" />
+                </form>
+                {{# images }}
+                    <div class="v-thumbnail">
+                      <a href="{{ settings.api }}{{ path }}">
+                        <img src="{{ settings.api }}{{ path }}">
+                      </a>
+                    </div>
+                {{/ images }}
+            </div>
+            <article class="v-contenteditable" contenteditable="true" id="text-block-{{ _id }}">
+              {{ body }}
+            </article>
+        {{/ isImage }}
+      {{/ blocks }}
+    </div>
+{{/ page }}

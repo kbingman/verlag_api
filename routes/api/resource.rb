@@ -11,6 +11,10 @@ class App
     klass = get_klass params[:klass]
     attributes = params[klass.to_s.downcase]
     model = klass.new attributes
+    
+    # temp
+    model.block_id = attributes['block_id'] if attributes['block_id']
+    model.page_id = attributes['page_id'] if attributes['page_id']
 
     if model.save
       presenter = "#{klass}Presenter".constantize.new(model)
@@ -66,7 +70,8 @@ class App
     headers['Access-Control-Allow-Methods'] = 'DELETE'
      
     klass = get_klass params[:klass]
-    model = klass.find params[:id]
+    id = params[:id]
+    model = klass.find id
     
     model.destroy
     json id: id 

@@ -24,7 +24,7 @@ end
     @presenter.as_json.should == {
       _id: @image_block._id,
       name: @image_block.name,
-      position: @model.position,
+      position: @image_block.position,
       class_name: @image_block._type,
       created_at: @image_block.created_at,
       updated_at: @image_block.updated_at,
@@ -35,7 +35,8 @@ end
         filename: @image.file.filename,
         # created_at: @image.created_at,
         # updated_at: @image.updated_at,
-        page_ids: [@page._id]
+        page_ids: [@page._id],
+        block_ids: []
       }]
     }
   
