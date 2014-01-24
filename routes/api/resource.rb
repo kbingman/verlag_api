@@ -10,11 +10,15 @@ class App
 
     klass = get_klass params[:klass]
     attributes = params[klass.to_s.downcase]
-    model = klass.new attributes
     
+    puts attributes.inspect
+    
+    model = klass.new
+    model.write_attributes attributes
+
     # temp
-    model.block_id = attributes['block_id'] if attributes['block_id']
-    model.page_id = attributes['page_id'] if attributes['page_id']
+    # model.block_id = attributes['block_id'] if attributes['block_id']
+    # model.page_id = attributes['page_id'] if attributes['page_id']
 
     if model.save
       presenter = "#{klass}Presenter".constantize.new(model)
@@ -27,15 +31,15 @@ class App
   
   get '/api/:klass' do
     headers['Access-Control-Allow-Origin'] = 'http://localhost:9000'
-    
+
     klass = get_klass params[:klass]
     collection = klass.all
-    
+
     json_collection = collection.collect{ |model| 
       presenter = "#{klass}Presenter".constantize.new(model)
       presenter.as_json
     }
-    
+
     json json_collection
   end
   

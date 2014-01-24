@@ -5,12 +5,13 @@ class Image
   include Mongoid::Document
   include Mongoid::Timestamps
   
-  attr_accessible :file, :file_cache #, :page_id, :block_id
+  attr_accessible :file, :file_cache, :caption #, :page_id, :block_id
   
   has_and_belongs_to_many :pages, inverse_of: :images
   belongs_to :site
   
   field :caption, type: String
+  field :title, type: String
   field :block_ids, type: Array, default: []
   
   mount_uploader :file, ImageUploader
